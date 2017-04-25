@@ -207,14 +207,18 @@ flag_mode:
                 // arrow direction
                 if(direction == '8') {
                     // up
-                    y = (MAX + --y) % MAX;
+                    --y;		
+                    y = (MAX + y) % MAX;
                 } else if(direction == '2') {
                     // down
-                    y = ++y % MAX;
+		    ++y;
+                    y = y % MAX;
                 } else if(direction == '4') {
-                    x = (MAX + --x) % MAX;
+		    --x;
+                    x = (MAX + x) % MAX;
                 } else if(direction == '6') {
-                    x = ++x % MAX;
+	 	    ++x;
+                    x = x % MAX;
                 } else if(direction == 'c' || direction == 'C') {
                     goto check_mode;
                 } else if(direction == '\n') {
@@ -250,14 +254,18 @@ check_mode:
                 // arrow direction
                 if(direction == '8') {
                     // up
-                    y = (MAX + --y) % MAX;
+		    --y;
+                    y = (MAX + y) % MAX;
                 } else if(direction == '2') {
                     // down
-                    y = ++y % MAX;
+		    ++y;
+                    y = y % MAX;
                 } else if(direction == '4') {
-                    x = (MAX + --x) % MAX;
+		    --x;
+                    x = (MAX + x) % MAX;
                 } else if(direction == '6') {
-                    x = ++x % MAX;
+		    ++x;
+                    x = x % MAX;
                 } else if(direction == 'f' || direction == 'F') {
                     goto flag_mode;
                 }
@@ -275,6 +283,7 @@ check_mode:
                 }
             } while (direction != 'q' && direction != 'Q');
             game_mode = 0;
+
 
             break;
 
